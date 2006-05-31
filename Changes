@@ -1,3 +1,9 @@
+0.63  Wed May 31 20:04:07 CEST 2006
+      Patch to remove redundant LICENCE key.
+      Submitted by "J Keen" <jkeen@verizon.net>
+      Implemented by "Richard Foley" <richard.foley@rfi.net>.
+      [rt.cpan.org 14985]
+
 0.62  Sat Oct  8 01:25:03 PDT 2005
     * Absorbed Test::Builder::Tester.  The last release broke it because its
       screen scraping Test::More and the failure output changed.  By

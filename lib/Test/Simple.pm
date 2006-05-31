@@ -84,7 +84,7 @@ sub ok ($;$) {
 
 =back
 
-Test::Simple will start by printing number of tests run in the form
+Test::Simple will start by printing the number of tests to run in the form
 "1..M" (so "1..5" means you're going to run 5 tests).  This strange
 format lets Test::Harness know how many tests you plan on running in
 case something goes horribly wrong.
@@ -103,7 +103,7 @@ So the exit codes are...
     255                 test died or all passed but wrong # of tests run
     any other number    how many failed (including missing or extras)
 
-If you fail more than 254 tests, it will be reported as 254.
+If you fail more than 254 tests, it will be reported as 254 (see CAVEATS).
 
 This module is by no means trying to be a complete testing system.
 It's just to get you started.  Once you're off the ground its
@@ -213,7 +213,7 @@ Interprets the output of your test program.
 =head1 AUTHORS
 
 Idea by Tony Bowden and Paul Johnson, code by Michael G Schwern
-E<lt>schwern@pobox.comE<gt>, wardrobe by Calvin Klein.
+E<lt>schwern@pobox.comE<gt>, wardrobe allegedly by Calvin Klein.
 
 
 =head1 COPYRIGHT
