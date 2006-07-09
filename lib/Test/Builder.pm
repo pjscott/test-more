@@ -898,11 +898,11 @@ sub skip {
     $self->{Curr_Test}++;
 
     $self->{Test_Results}[$self->{Curr_Test}-1] = &share({
-        'ok'      => 1,
-        actual_ok => 1,
-        description      => '',
-        type      => 'skip',
-        reason    => $why,
+        'ok'        => 1,
+        actual_ok   => 1,
+        description => '',
+        type        => 'skip',
+        reason      => $why,
     });
 
     my $out = "ok";
@@ -942,11 +942,11 @@ sub todo_skip {
     $self->{Curr_Test}++;
 
     $self->{Test_Results}[$self->{Curr_Test}-1] = &share({
-        'ok'      => 1,
-        actual_ok => 0,
-        description      => '',
-        type      => 'todo_skip',
-        reason    => $why,
+        'ok'        => 1,
+        actual_ok   => 0,
+        description => '',
+        type        => 'todo_skip',
+        reason      => $why,
     });
 
     my $out = "not ok";
@@ -1364,11 +1364,11 @@ sub current_test {
             my $start = @$test_results ? @$test_results : 0;
             for ($start..$num-1) {
                 $test_results->[$_] = &share({
-                    'ok'      => 1, 
-                    actual_ok => undef, 
-                    reason    => 'incrementing test number', 
-                    type      => 'unknown', 
-                    description      => undef 
+                    'ok'        => 1, 
+                    actual_ok   => undef, 
+                    reason      => 'incrementing test number', 
+                    type        => 'unknown', 
+                    description => undef 
                 });
             }
         }
@@ -1405,11 +1405,11 @@ sub summary {
 Like summary(), but with a lot more detail.
 
     $tests[$test_num - 1] = 
-            { 'ok'       => is the test considered a pass?
-              actual_ok  => did it literally say 'ok'?
-              description       => description of the test (if any)
-              type       => type of test (if any, see below).
-              reason     => reason for the above (if any)
+            { 'ok'        => is the test considered a pass?
+              actual_ok   => did it literally say 'ok'?
+              description => description of the test (if any)
+              type        => type of test (if any, see below).
+              reason      => reason for the above (if any)
             };
 
 'ok' is true if Test::Harness will consider the test to be a pass.
@@ -1438,11 +1438,11 @@ For example "not ok 23 - hole count # TODO insufficient donuts" would
 result in this structure:
 
     $tests[22] =    # 23 - 1, since arrays start from 0.
-      { ok        => 1,   # logically, the test passed since it's todo
-        actual_ok => 0,   # in absolute terms, it failed
-        description      => 'hole count',
-        type      => 'todo',
-        reason    => 'insufficient donuts'
+      { ok          => 1,   # logically, the test passed since it's todo
+        actual_ok   => 0,   # in absolute terms, it failed
+        description => 'hole count',
+        type        => 'todo',
+        reason      => 'insufficient donuts'
       };
 
 =cut
