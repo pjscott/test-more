@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use Test::Builder::Tester tests => 9;
+use Test::Builder::Tester tests => 12;
 use Test::More;
 
 ok(1,"This is a basic test");
@@ -29,27 +29,37 @@ is("foo","bar","should fail");
 test_test("testing failing");
 
 
-test_out("not ok 1");
-test_out("not ok 2");
 test_fail(+2);
 test_fail(+1);
 fail();  fail();
 test_test("testing failing on the same line with no description");
 
 
-test_out("not ok 1 - description");
-test_out("not ok 2 - description");
-test_fail(+2);
-test_fail(+1);
-fail("description");  fail("description");
+test_fail(+2, 'description');
+test_fail(+1, 'description_two');
+fail("description");  fail("description_two");
 test_test("testing failing on the same line with the same description");
 
 
 test_out("not ok 1 - description # TODO Something");
-test_err("#     Failed (TODO) test ($0 at line 52)");
+my $line = __LINE__ + 4;
+test_err("#     Failed (TODO) test ($0 at line $line)");
 TODO: { 
     local $TODO = "Something";
     fail("description");
 }
 test_test("testing failing with todo");
 
+test_pass();
+pass();
+test_test("testing passing with test_pass()");
+
+test_pass("some description");
+pass("some description");
+test_test("testing passing with test_pass() and description");
+
+test_pass("one test");
+test_pass("... and another");
+ok(1, "one test");
+ok(1, "... and another");
+test_test("testing pass_test() and multiple tests");
